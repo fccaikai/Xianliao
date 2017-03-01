@@ -9,10 +9,15 @@ import com.kcode.xianliao.BaseView;
 
 public interface LoginContract {
     interface View extends BaseView<Presenter> {
+        void showLoginProgress();
 
+        void dismissLoginProgress();
+
+        void showLoginStatus(boolean loginStatus,String message);
     }
 
     interface Presenter extends BasePresenter {
+        void login(String account,String password);
     }
 
 }

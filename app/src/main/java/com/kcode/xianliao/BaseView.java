@@ -5,5 +5,5 @@ package com.kcode.xianliao;
  */
 
 public interface BaseView<T> {
-    void serPresenter(T presenter);
+    void setPresenter(T presenter);
 }
