@@ -10,10 +10,17 @@ import butterknife.ButterKnife;
  * Created by caik on 2017/2/27.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getLayoutView());
+
         ButterKnife.bind(this);
+
     }
+
+    protected abstract int getLayoutView();
+
+
 }
