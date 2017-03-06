@@ -10,7 +10,38 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        app:theme="@style/Theme.AppCompat.Light">
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/etAccount"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="@string/username"
+            android:textColor="#535353"
+            android:textColorHint="#4a4a4a"
+            android:textCursorDrawable="@null"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="@string/password"
+            android:textColor="#535353"
+            android:textColorHint="#4a4a4a"
+            android:textCursorDrawable="@null"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+
 </LinearLayout>

@@ -19,32 +19,38 @@ public class LoginPresenter  implements LoginContract.Presenter{
     }
 
     @Override
-    public void login(String account, String password) {
+    public void login(final String account, final String password) {
         mView.showLoginProgress();
 
-        EMClient.getInstance().login(account,password,new EMCallBack() {//回调
+        new Thread(){
             @Override
-            public void onSuccess() {
-                loginFinish(true);
-                Log.d("main", "登录聊天服务器成功！");
-            }
+            public void run() {
+                EMClient.getInstance().login(account,password,new EMCallBack() {//回调
+                    @Override
+                    public void onSuccess() {
+                        loginFinish(true);
+                        Log.d("main", "登录聊天服务器成功！");
+                    }
 
-            @Override
-            public void onProgress(int progress, String status) {
+                    @Override
+                    public void onProgress(int progress, String status) {
 
-            }
+                    }
 
-            @Override
-            public void onError(int code, String message) {
-                Log.d("main", "登录聊天服务器失败！");
-                loginFinish(false);
+                    @Override
+                    public void onError(int code, String message) {
+                        Log.d("main", "登录聊天服务器失败！");
+                        loginFinish(false);
+                    }
+                });
             }
-        });
+        }.start();
+
 
     }
 
     private void loginFinish(boolean loginStatus) {
         mView.dismissLoginProgress();
-
+        mView.showLoginStatus(loginStatus,"");
     }
 }

@@ -9,11 +9,17 @@ import com.kcode.xianliao.BaseView;
 
 public interface RegisterContract {
     interface View extends BaseView<Presenter> {
+        void showProgress();
 
+        void dismissProgress();
+
+        void registerSuccess();
+
+        void registerError();
     }
 
     interface Presenter extends BasePresenter {
-
+        void register(String username, String pwd);
     }
 
 }

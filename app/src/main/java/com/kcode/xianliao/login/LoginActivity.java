@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import com.kcode.xianliao.R;
 import com.kcode.xianliao.app.BaseActivity;
+import com.kcode.xianliao.home.HomeActivity;
 import com.kcode.xianliao.register.RegisterActivity;
 import com.kcode.xianliao.utils.ToastUtils;
 
@@ -64,16 +65,19 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
 
     @Override
     public void showLoginProgress() {
-
+        showProgressDialog();
     }
 
     @Override
     public void dismissLoginProgress() {
-
+        dismissProgressDialog();
     }
 
     @Override
     public void showLoginStatus(boolean loginStatus, String message) {
-
+        if (loginStatus) {
+            startActivity(HomeActivity.newIntent(this));
+            finish();
+        }
     }
 }
